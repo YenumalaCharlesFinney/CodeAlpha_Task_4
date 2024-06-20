@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disease Prediction</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #output {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Disease Prediction</h1>
+    <form id="predictionForm">
+        <label for="symptoms">Symptoms:</label>
+        <input type="text" id="symptoms" placeholder="Enter symptoms separated by commas">
+
+        <label for="patientHistory">Patient History:</label>
+        <input type="text" id="patientHistory" placeholder="Enter patient history">
+
+        <button type="button" onclick="predictDisease()">Predict Disease</button>
+    </form>
+
+    <div id="output"></div>
+</div>
+
+<script>
+    function predictDisease() {
+        // Get input values
+        const symptoms = document.getElementById('symptoms').value;
+        const patientHistory = document.getElementById('patientHistory').value;
+
+        // Perform prediction including heartbreak check
+        const predictedDisease = predict(symptoms, patientHistory);
+
+        // Display prediction result
+        document.getElementById('output').innerText = 'Predicted Disease: ' + predictedDisease;
+    }
+
+    function predict(symptoms, patientHistory) {
+        // Check if heartbreak is mentioned in symptoms and crush is mentioned in patient history
+        if (symptoms.toLowerCase().includes('heartbreak') && patientHistory.toLowerCase().includes('crush')) {
+            return 'Love';
+        }
+
+        // Placeholder prediction function for other diseases
+        // Replace this with your actual prediction algorithm
+        // For demonstration purposes, it returns a random disease
+        const diseases = ['Flu', 'Cold', 'Pneumonia', 'Asthma', 'Diabetes'];
+        const randomIndex = Math.floor(Math.random() * diseases.length);
+        return diseases[randomIndex];
+    }
+</script>
+</body>
+</html>
